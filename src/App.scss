@@ -1,0 +1,13 @@
+$font-stack:    Arial, Helvetica, sans-serif;
+$primary-color: #333;
+
+/* CSS Reset */
+body {
+  font: 100% $font-stack;
+  font-size: 16px;
+  color: $primary-color;
+}
+
+.App {
+    margin: 1rem;
+}
