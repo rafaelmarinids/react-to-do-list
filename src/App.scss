@@ -1,13 +1,51 @@
-$font-stack:    Arial, Helvetica, sans-serif;
-$primary-color: #333;
-
-/* CSS Reset */
-body {
-  font: 100% $font-stack;
-  font-size: 16px;
-  color: $primary-color;
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
 }
 
+@import 'reset';
+
 .App {
-    margin: 1rem;
+    margin: 1rem auto;
+    width: 100;
+    max-width: 1000px;
+}
+
+header {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+header {
+  span {
+    color: #EEE;
+  }
+
+  a {
+    display: block;
+    float: right;
+    padding: .1rem 1rem;
+    background-color: white;
+    @include border-radius(4px);
+  }
+
+  a {
+    img {
+      width: 8rem;
+      height: auto;
+    }
+  }
+}
+
+main {
+  background-color: #EEE;
+  box-sizing: border-box;
+  padding: 2rem;
+  @include border-radius(4px);
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
 }

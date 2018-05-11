@@ -1,0 +1,17 @@
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+.TodoInput {
+    padding: 1rem;
+    background-color: #3d3d3d;
+    box-sizing: border-box;
+    width: 100%;
+    color: #EEE;
+    border: 0;
+    font-size: 1rem;
+    @include border-radius(4px);
+}
