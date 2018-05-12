@@ -8,7 +8,7 @@ class Todo extends Component {
 
     render() {
         return (
-            <li key="1" className={this.props.todo.completed ? "Todo completo" : "Todo"}>
+            <li key={this.props.todo.key} className={this.props.todo.completed ? "Todo completo" : "Todo"}>
                 <span>11/05/2018 às 21:02</span>
                 <p>{this.props.todo.text}</p>
                 <a href="#" title="" className="Todo-botao-completar">Completar</a>

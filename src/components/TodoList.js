@@ -14,13 +14,13 @@ class TodoList extends Component {
     }
 
     render() {
-        const listTodos = this.props.todos.map((todo) => 
-            <Todo todo={todo} />
+        const todoList = this.props.todos.map((todo, index) => 
+            <Todo todo={todo} key={index} />
         );
 
         return (
             <ul>
-                {listTodos}
+                {todoList}
             </ul>
         );
     }
