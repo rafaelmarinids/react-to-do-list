@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 import "./App.scss";
 import TodoInput from "./TodoInput.js"
+import TodoOrder from "./TodoOrder.js"
+import TodoList from "./TodoList.js"
 
 class App extends Component {
     render() {
@@ -13,6 +15,8 @@ class App extends Component {
                 </header>
                 <main>
                     <TodoInput />
+                    <TodoOrder />
+                    <TodoList />
                 </main>
                 <footer></footer>
             </div>

@@ -1,0 +1,59 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.Todo {
+  display: block;
+  position: relative;
+  padding: 1rem;
+  margin-bottom: .5rem;
+  background-color: #CCC;
+  @include border-radius(4px);
+}
+
+.Todo.completo {
+    background-color: #C8E1BC;
+}
+
+.Todo:last-child {
+  margin-bottom: 0;
+}
+
+.Todo {
+    p {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: .5rem 7rem 0 0;
+    }
+}
+
+.Todo.completo {
+    p {
+        text-decoration: line-through;
+    }
+}
+
+.Todo-botao-excluir {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: block;
+    text-decoration: none;
+    color: rgb(100, 100, 100);
+    font-weight: bold;
+}
+
+.Todo-botao-completar {
+    position: absolute;
+    top: 2.5rem;
+    right: 1rem;
+    display: block;
+    padding: .5rem;
+    background-color: #3d3d3d;
+    text-decoration: none;
+    color: #EEE;
+    @include border-radius(4px);
+}
