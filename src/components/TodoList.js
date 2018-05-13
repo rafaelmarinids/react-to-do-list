@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Todo from "./Todo.js";
+import { OrderOptions } from "../constants/index";
+import "./TodoOrder.scss";
 
 const mapStateToProps = state => {
     return { 
@@ -11,17 +13,40 @@ const mapStateToProps = state => {
 class TodoList extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {order: OrderOptions.MOST_RECENT};
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({ order: event.target.value });
     }
 
     render() {
-        const todoList = this.props.todos.map((todo, index) => 
+        let todosOrdered = Array.from(this.props.todos);
+
+        if (this.state.order === OrderOptions.MOST_RECENT) {
+            todosOrdered.reverse();
+        }
+
+        const todoList = todosOrdered.map((todo, index) => 
             <Todo key={todo.id} todo={todo} />
         );
 
         return (
-            <ul>
-                {todoList}
-            </ul>
+            <div>
+                <div className="TodoOrder">
+                    <span>Ordernar por:</span>
+                    <select value={this.state.order} onChange={this.handleChange}>
+                        <option value="MOST_RECENT">Mais recentes</option>
+                        <option value="OLDER">Mais antigas</option>
+                    </select>
+                </div>
+                <ul>
+                    {todoList}
+                </ul>
+            </div>
         );
     }
 }

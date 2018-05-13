@@ -2,6 +2,8 @@ import { combineReducers } from 'redux';
 import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters } from "../constants/index";
 
 const now = new Date();
+const after = new Date();
+after.setSeconds(after.getSeconds() + 1);
 
 const initialState = {
     todos: [
@@ -12,7 +14,7 @@ const initialState = {
             completed: true
         }, {
             id: 2,
-            date: now,
+            date: after,
             text: 'Desenvolver um app "To Do List" em 1 semana',
             completed: false
         }

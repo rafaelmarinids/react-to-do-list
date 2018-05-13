@@ -9,3 +9,9 @@ export const VisibilityFilters = {
   SHOW_ALL: 'SHOW_ALL',
   SHOW_COMPLETED: 'SHOW_COMPLETED'
 }
+
+// Order options
+export const OrderOptions = {
+  MOST_RECENT: 'MOST_RECENT',
+  OLDER: 'OLDER'
+}
