@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Todo from "./Todo.js";
-import { OrderOptions } from "../constants/index";
+import { OrderOptions, VisibilityFilters } from "../constants/index";
 import "./TodoOrder.scss";
 
 const mapStateToProps = state => {
     return { 
-        todos: state.todos 
+        todos: state.todos,
+        visibilityFilter: state.visibilityFilter 
     };
 };
 
@@ -26,13 +27,20 @@ class TodoList extends Component {
     render() {
         let todosOrdered = Array.from(this.props.todos);
 
+        // Ordenacão
         if (this.state.order === OrderOptions.MOST_RECENT) {
             todosOrdered.reverse();
         }
 
-        const todoList = todosOrdered.map((todo, index) => 
-            <Todo key={todo.id} todo={todo} />
-        );
+        // Filtragem
+        const todoList = todosOrdered.map((todo, index) => {
+            if (this.props.visibilityFilter === VisibilityFilters.SHOW_ALL
+                || (this.props.visibilityFilter === VisibilityFilters.SHOW_COMPLETED && todo.completed)) {
+                return (
+                    <Todo key={todo.id} todo={todo} />
+                );
+            }
+        });
 
         return (
             <div>

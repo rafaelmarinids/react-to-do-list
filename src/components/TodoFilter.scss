@@ -1,0 +1,39 @@
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+.TodoFilter {
+    margin: 1rem 0 0 0;
+}
+
+.TodoFilter {
+    span {
+        display: inline-block;
+        margin-right: 1rem;
+    }
+}
+
+.TodoFilter-botao {
+    display: inline-block;
+    margin-right: .5rem;
+    padding: .5rem;
+    text-decoration: none;
+    color: rgb(100, 100, 100);
+}
+
+.TodoFilter-botao.selecionado {
+    display: inline-block;
+    margin-right: .5rem;
+    padding: .5rem;
+    background-color: #3d3d3d;
+    text-decoration: none;
+    color: #EEE;
+    @include border-radius(4px);
+}
+
+.TodoFilter-botao:last-child {
+    margin-right: 0;
+}

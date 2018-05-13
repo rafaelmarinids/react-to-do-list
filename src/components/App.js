@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import logo from "../../assets/logo.png";
 import "./App.scss";
-import TodoInput from "./TodoInput.js"
-import TodoList from "./TodoList.js"
+import TodoInput from "./TodoInput.js";
+import TodoList from "./TodoList.js";
+import TodoFilter from "./TodoFilter.js";
 
 class App extends Component {
     render() {
@@ -15,6 +16,7 @@ class App extends Component {
                 <main>
                     <TodoInput />
                     <TodoList />
+                    <TodoFilter />
                 </main>
                 <footer>
                     Desenvolvido por Rafael Marini de Souza

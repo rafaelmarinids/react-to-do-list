@@ -6,12 +6,17 @@ export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 
 // Filter states
 export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED'
+    SHOW_ALL: 'SHOW_ALL',
+    SHOW_COMPLETED: 'SHOW_COMPLETED'
 }
 
 // Order options
 export const OrderOptions = {
-  MOST_RECENT: 'MOST_RECENT',
-  OLDER: 'OLDER'
+    MOST_RECENT: 'MOST_RECENT',
+    OLDER: 'OLDER'
 }
+
+// Helper functions
+export const dateFormat = (date) => {
+    return date.toLocaleDateString() + " às " + date.toLocaleTimeString();
+};

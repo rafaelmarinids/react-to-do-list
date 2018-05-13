@@ -49,6 +49,7 @@ class TodoInput extends Component {
                     placeholder="O que precisa ser feito?" 
                     autoFocus={true}
                     className="TodoInput"
+                    maxLength="100"
                     value={text}
                     onChange={this.handleChange} />
             </form>
