@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import uuidv1 from "uuid";
 import { addTodo } from "../actions/index";
 import "./TodoInput.scss";
 
 const mapDispatchToProps = dispatch => {
     return {
-        addTodo: text => dispatch(addTodo(text))
+        addTodo: (id, text) => dispatch(addTodo(id, text))
     };
 };
 
@@ -31,7 +32,9 @@ class TodoInput extends Component {
         const { text } = this.state;
 
         if (text) {
-            this.props.addTodo(text);
+            const uniqueId = uuidv1();
+
+            this.props.addTodo(uniqueId, text);
 
             this.setState({ text: "" });
         }
@@ -53,6 +56,6 @@ class TodoInput extends Component {
     }
 }
 
-const Input = connect(null, mapDispatchToProps)(TodoInput);
+const TodoInputConnected = connect(null, mapDispatchToProps)(TodoInput);
 
-export default Input;
+export default TodoInputConnected;

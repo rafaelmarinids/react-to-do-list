@@ -1,16 +1,19 @@
 import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from "../constants/index";
 
-export const addTodo = text => ({ 
+export const addTodo = (id, text) => ({ 
     type: ADD_TODO, 
-    text //Payload
+    payload: {
+        id,
+        text
+    }
 });
 
-export const removeTodo = index => ({ 
+export const removeTodo = id => ({ 
     type: REMOVE_TODO, 
-    index
+    id
 });
 
-export const toogleTodo = index => ({ 
+export const toogleTodo = id => ({ 
     type: TOGGLE_TODO, 
-    index
+    id
 });

@@ -1,21 +1,53 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { removeTodo, toogleTodo } from "../actions/index";
 import "./Todo.scss";
+
+const mapDispatchToProps = dispatch => {
+    return {
+        removeTodo: id => dispatch(removeTodo(id)),
+        toogleTodo: id => dispatch(toogleTodo(id))
+    };
+};
 
 class Todo extends Component {
     constructor(props) {
         super(props);
+
+        this.handleRemoveButtonClick = this.handleRemoveButtonClick.bind(this);
+        this.handleCompletedButtonClick = this.handleCompletedButtonClick.bind(this);
+    }
+
+    handleRemoveButtonClick(event) {
+        event.preventDefault();
+
+        this.props.removeTodo(this.props.todo.id);
+    }
+
+    handleCompletedButtonClick(event) {
+        event.preventDefault();
+
+        this.props.toogleTodo(this.props.todo.id);
     }
 
     render() {
         return (
-            <li key={this.props.todo.key} className={this.props.todo.completed ? "Todo completo" : "Todo"}>
-                <span>11/05/2018 às 21:02</span>
+            <li className={this.props.todo.completed ? "Todo completo" : "Todo"}>
+                <span>Inserido em {this.props.todo.date.toLocaleDateString() + " às " + this.props.todo.date.toLocaleTimeString()}</span>
                 <p>{this.props.todo.text}</p>
-                <a href="#" title="" className="Todo-botao-completar">Completar</a>
-                <a href="#" title="Excluir" className="Todo-botao-excluir">X</a>
+                {!this.props.todo.completed && <a href="#" title="Completar" className="Todo-botao-completar" onClick={this.handleCompletedButtonClick}>Completar</a>}
+                {this.props.todo.completed && <a href="#" title="Liberar" className="Todo-botao-liberar" onClick={this.handleCompletedButtonClick}>Liberar</a>}
+                <a href="#" 
+                    title="Excluir" 
+                    className="Todo-botao-excluir"
+                    onClick={this.handleRemoveButtonClick}>
+                    X
+                </a>
             </li>
         );
     }
 }
 
-export default Todo;
+const TodoConnected = connect(null, mapDispatchToProps)(Todo);
+
+export default TodoConnected;

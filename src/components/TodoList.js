@@ -15,7 +15,7 @@ class TodoList extends Component {
 
     render() {
         const todoList = this.props.todos.map((todo, index) => 
-            <Todo todo={todo} key={index} />
+            <Todo key={todo.id} todo={todo} />
         );
 
         return (
@@ -26,6 +26,6 @@ class TodoList extends Component {
     }
 }
 
-const List = connect(mapStateToProps)(TodoList);
+const TodoListConnected = connect(mapStateToProps)(TodoList);
 
-export default List;
+export default TodoListConnected;

@@ -1,13 +1,19 @@
 import { combineReducers } from 'redux';
 import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters } from "../constants/index";
 
+const now = new Date();
+
 const initialState = {
     todos: [
         {
-            text: 'Consider using Redux',
+            id: 1,
+            date: now,
+            text: 'Aprender React + Redux',
             completed: true
         }, {
-            text: 'Keep all state in a single tree',
+            id: 2,
+            date: now,
+            text: 'Desenvolver um app "To Do List" em 1 semana',
             completed: false
         }
     ],
@@ -29,19 +35,21 @@ const todos = (state = initialState.todos, action) => {
         return [
             ...state,
             {
-                text: action.text,
+                id: action.payload.id,
+                date: new Date(),
+                text: action.payload.text,
                 completed: false
             }
         ];
       case REMOVE_TODO:
-        return state.filter((todo, index) => {
-            if (index === action.index) {
-                return false;
+        return state.filter((todo) => {
+            if (todo.id !== action.id) {
+                return true;
             }
         });
       case TOGGLE_TODO:
-        return state.map((todo, index) => {
-            if (index === action.index) {
+        return state.map((todo) => {
+            if (todo.id === action.id) {
                 return Object.assign({}, todo, { completed: !todo.completed });
             }
 

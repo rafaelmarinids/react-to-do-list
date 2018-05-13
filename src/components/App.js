@@ -18,7 +18,9 @@ class App extends Component {
                     <TodoOrder />
                     <TodoList />
                 </main>
-                <footer></footer>
+                <footer>
+                    Desenvolvido por Rafael Marini de Souza
+                </footer>
             </div>
         );
     }

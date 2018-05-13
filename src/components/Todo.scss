@@ -46,7 +46,7 @@
     font-weight: bold;
 }
 
-.Todo-botao-completar {
+.Todo-botao-completar, .Todo-botao-liberar {
     position: absolute;
     top: 2.5rem;
     right: 1rem;
@@ -56,4 +56,18 @@
     text-decoration: none;
     color: #EEE;
     @include border-radius(4px);
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.Todo-botao-completar:hover, .Todo-botao-liberar:hover {
+    background-color: #666;
+    -webkit-transition: background-color 0.2s ease;
+    -moz-transition: background-color 0.2s ease;
+    -o-transition: background-color 0.2s ease;
+    -ms-transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;
 }
