@@ -17,6 +17,7 @@ header {
   font-size: 3rem;
   margin-bottom: 1rem;
   overflow: hidden;
+  text-align: center;
 }
 
 header {
@@ -53,4 +54,10 @@ main {
 footer {
   padding: 1rem 0 0 0;
   text-align: center;
+}
+
+@media all and (min-width: 31.25rem) {
+  header {
+    text-align: left;
+  }
 }

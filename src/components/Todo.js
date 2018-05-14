@@ -33,7 +33,7 @@ class Todo extends Component {
     render() {
         return (
             <li className={this.props.todo.completed ? "Todo completo" : "Todo"}>
-                <span>Inserido em {this.props.todo.date}</span>
+                <span>{this.props.todo.date}</span>
                 <p>{this.props.todo.text}</p>
                 {!this.props.todo.completed && <a href="#" title="Completar" className="Todo-botao-completar" onClick={this.handleCompletedButtonClick}>Completar</a>}
                 {this.props.todo.completed && <a href="#" title="Liberar" className="Todo-botao-liberar" onClick={this.handleCompletedButtonClick}>Liberar</a>}
