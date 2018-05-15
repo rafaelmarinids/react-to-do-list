@@ -25,7 +25,7 @@ class TodoList extends Component {
     }
 
     render() {
-        let todosOrdered = Array.from(this.props.todos);
+        let todosOrdered = [...this.props.todos];
 
         // Ordenacão
         if (this.state.order === OrderOptions.MOST_RECENT) {
